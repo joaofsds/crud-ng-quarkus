@@ -1,23 +1,27 @@
 import {Component, OnInit} from '@angular/core';
 import { Course } from './model/course';
 import { CoursesService } from './services/courses';
+import {Observable} from 'rxjs';
+import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-courses',
-  imports: [],
+  imports: [
+    AsyncPipe
+  ],
   templateUrl: './courses.html',
   styleUrl: './courses.scss',
 })
-class Courses {
-  courses: Course[] = [];
-  coursesService: CoursesService;
+class Courses implements OnInit {
+  courses: Observable<Course[]>;
 
-
-
-  constructor() {
-    this.coursesService = new CoursesService();
+  constructor(private coursesService: CoursesService) {
     this.courses = this.coursesService.list();
+
   }
+
+  ngOnInit(): void {
+    }
 }
 
 export default Courses
