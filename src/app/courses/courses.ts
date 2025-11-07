@@ -13,10 +13,10 @@ import {AsyncPipe} from '@angular/common';
   styleUrl: './courses.scss',
 })
 class Courses implements OnInit {
-  courses: Observable<Course[]>;
+  courses$: Observable<Course[]>;
 
   constructor(private coursesService: CoursesService) {
-    this.courses = this.coursesService.list();
+    this.courses$ = this.coursesService.list();
 
   }
 

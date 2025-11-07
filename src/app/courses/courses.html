@@ -5,24 +5,30 @@
         <a class="navbar-brand" href="#">Available courses</a>
       </div>
     </nav>
+
+    @if (courses$ | async; as courses) {
     <table class="table">
       <thead>
-      <tr>
-        <th scope="col">Course</th>
-        <th scope="col">Category</th>
-      </tr>
+        <tr>
+          <th scope="col">Course</th>
+          <th scope="col">Category</th>
+        </tr>
       </thead>
       <tbody>
-        @for (course of (courses | async); track course) {
-          <tr>
-            <td>{{ course.name }}</td>
-            <td>{{ course.category }}</td>
-          </tr>
+        @for (course of courses; track course) {
+        <tr>
+          <td>{{ course.name }}</td>
+          <td>{{ course.category }}</td>
+        </tr>
         }
       </tbody>
     </table>
+    } @else {
+    <div class="loading-spinner">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    }
   </div>
 </div>
-
-
-
