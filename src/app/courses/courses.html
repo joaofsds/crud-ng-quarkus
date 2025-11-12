@@ -14,11 +14,17 @@
           <th scope="col">Category</th>
         </tr>
       </thead>
+
       <tbody>
         @for (course of courses; track course) {
         <tr>
           <td>{{ course.name }}</td>
           <td>{{ course.category }}</td>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Course category icon"
+            fontIcon="{{ course.category | category }}"
+          ></mat-icon>
         </tr>
         }
       </tbody>

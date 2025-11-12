@@ -6,10 +6,11 @@ import { AsyncPipe } from '@angular/common';
 import { ErrorDialogue } from '../../shared/components/error-dialogue/error-dialogue';
 import { SharedModule } from '../../shared/shared-module';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-courses',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, MatIcon, SharedModule],
   templateUrl: './courses.html',
   styleUrl: './courses.scss',
 })
